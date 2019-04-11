@@ -18,15 +18,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email',
+        'firstname','lastname' , 'email','title','description'
     ];
+    public $timestamps = true;
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-    ];
+    public function team() {
+        return $this->hasMany('App\TeamUser', 'user_id')->leftJoin('teams', 'team_id', 'teams.id');
+    }
 }
