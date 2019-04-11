@@ -17,10 +17,12 @@ $router->get('/', function () use ($router) {
 
 $router->get('users', 'UserController@index');
 $router->post('users', 'UserController@store');
+$router->get('users/{id}', 'UserController@get');
 $router->put('users/{id}', 'UserController@update');
 $router->delete('users/{id}', 'UserController@destroy');
 
 $router->get('teams', 'TeamController@index');
 $router->post('teams', 'TeamController@store');
+$router->get('teams/{id}', 'TeamController@get');
 $router->put('teams/{id}', 'TeamController@update');
 $router->delete('teams/{id}', 'TeamController@destroy');
